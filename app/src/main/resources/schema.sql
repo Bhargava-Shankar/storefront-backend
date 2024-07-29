@@ -1,0 +1,1 @@
+INSERT INTO PRODUCT VALUES (2001,'Hide and seek',20,20);
