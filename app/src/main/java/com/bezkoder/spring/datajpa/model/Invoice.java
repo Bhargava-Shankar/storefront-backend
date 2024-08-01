@@ -1,12 +1,21 @@
 package com.bezkoder.spring.datajpa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 public class Invoice {
 
     @Id
@@ -18,15 +27,25 @@ public class Invoice {
     @JoinColumn(name="customerId")
     private Customer customer;
 
-    // [ { product_id1,qty1 }, { product_id2,qty2 } ]
-
     @OneToMany(mappedBy = "invoice")
+    @JsonIgnoreProperties(ignoreUnknown = true, value = {"invoice"})
     private List<InvoiceLine> invoiceLineList;
 
-    public Double totalAmount;
+    public Double invoiceTotalQty;
+    public Double invoiceTotalAmount;
 
-    public Timestamp createdAt;
 
+    public Timestamp createdAt = new Timestamp(2024);
+
+    @Override
+    public String toString() {
+        return "Invoice{" +
+                ", invoiceLineList size=" + invoiceLineList.size() +
+                ", invoiceTotalQty=" + invoiceTotalQty +
+                ", invoiceTotalAmount=" + invoiceTotalAmount +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 
 
 }
