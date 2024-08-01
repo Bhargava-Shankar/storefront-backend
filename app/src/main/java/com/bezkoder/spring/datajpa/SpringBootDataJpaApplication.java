@@ -16,21 +16,6 @@ public class SpringBootDataJpaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootDataJpaApplication.class, args);
 	}
-	@Autowired
-	CustomerRepository customerRepository;
-	@Autowired
-	InvoiceRespository invoiceRespository;
-	@Autowired
-	InvoiceLineRepository invoiceLineRepository;
-	@PostConstruct
-	public void init(){
-		Customer customer = new Customer();
-		customer.setCustomerName("Bhargava");
-		System.out.println("New Record Created");
-		customerRepository.save(customer);
 
-//		invoiceRespository.deleteAll();
-//		invoiceLineRepository.deleteAll();
-	}
 
 }

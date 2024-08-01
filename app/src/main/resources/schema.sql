@@ -1,1 +1,1 @@
-INSERT INTO PRODUCT VALUES (2001,'Hide and seek',20,20);
+INSERT INTO customer VALUES (1,'Bhargava');
