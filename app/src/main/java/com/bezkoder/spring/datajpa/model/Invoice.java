@@ -3,6 +3,7 @@ package com.bezkoder.spring.datajpa.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -35,7 +36,8 @@ public class Invoice {
     public Double invoiceTotalAmount;
 
 
-    public Timestamp createdAt = new Timestamp(2024);
+    @CreationTimestamp
+    public Timestamp createdAt;
 
     @Override
     public String toString() {
