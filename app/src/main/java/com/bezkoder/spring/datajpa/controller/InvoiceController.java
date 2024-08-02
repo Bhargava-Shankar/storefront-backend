@@ -51,10 +51,12 @@ public class InvoiceController {
             }
 
         }
-        //SUBTRACT TOTAL QUANTITY FROM PRODUCT DATABASE
-
-
-//        invoiceRespository.save(invoice);
         return new ResponseEntity<>("Invoice Created",HttpStatus.OK);
+    }
+
+    @DeleteMapping("/invoices/{id}")
+    public ResponseEntity<String> deleteInvoice(@PathVariable(required = true) Integer id){
+        invoiceRespository.deleteById(id);
+        return new ResponseEntity<>("",HttpStatus.NO_CONTENT);
     }
 }
