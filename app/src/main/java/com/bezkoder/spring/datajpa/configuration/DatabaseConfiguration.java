@@ -29,7 +29,7 @@ public class DatabaseConfiguration {
         System.out.println("Password :"+password);
         HikariConfig hikariConfig = new HikariConfig();
 
-            hikariConfig.setJdbcUrl(databaseUrl);
+            hikariConfig.setJdbcUrl("jdbc:"+databaseUrl);
             hikariConfig.setUsername(username);
             hikariConfig.setPassword(password);
             hikariConfig.setDriverClassName("com.mysql.cj.jdbc.Driver");
