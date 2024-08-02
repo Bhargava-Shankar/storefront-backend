@@ -11,6 +11,8 @@ import javax.sql.DataSource;
 @Configuration
 public class DatabaseConfiguration {
 
+
+
     @Value("${MYSQLDB_ROOT_URL}")
     private String databaseUrl;
 
@@ -21,18 +23,18 @@ public class DatabaseConfiguration {
     private String password;
 
     @Bean
-    public DataSource dataSource() {
+    public DataSource dataSourceCreation() {
         System.out.println("Database URL"+databaseUrl);
         System.out.println("Username :"+username);
         System.out.println("Password :"+password);
         HikariConfig hikariConfig = new HikariConfig();
 
-            hikariConfig.setJdbcUrl("jdbc:"+databaseUrl);
+            hikariConfig.setJdbcUrl(databaseUrl);
             hikariConfig.setUsername(username);
             hikariConfig.setPassword(password);
             hikariConfig.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
-            return new HikariDataSource(hikariConfig);
+        return new HikariDataSource(hikariConfig);
 
     }
 }
