@@ -17,5 +17,4 @@ public class SpringBootDataJpaApplication {
 		SpringApplication.run(SpringBootDataJpaApplication.class, args);
 	}
 
-
 }
